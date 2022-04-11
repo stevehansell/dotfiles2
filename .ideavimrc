@@ -1,0 +1,58 @@
+let mapleader = " ""
+
+" Basic settings
+"
+set number
+set relativenumber
+set incsearch
+
+" vimrc
+"
+nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <leader>ve :e /Users/hanse/.ideavimrc<CR>
+
+" Window/Split management
+"
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+" Navigation
+"
+nnoremap gf :action GotoFile<CR>
+nnoremap gk :action GotoClass<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap gr :action RecentFiles<CR>
+
+
+" Git
+"
+nnoremap <leader>ga :action Vcs.QuickListPopupAction<CR>
+nnoremap <leader>gb :action Vcs.ShowBranches<CR>
+
+
+
+" Quick Actions
+"
+noremap <leader>ce :action ShowErrorDescription<CR>
+noremap <leader>cd :action QuickJavaDoc<CR>
+noremap <leader>cs :action FileStructurePopup<CR>
+noremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+noremap <leader>cu :action ShowUsages<CR>
+noremap <leader>` :action ActivateTerminalToolWindow<CR>
+
+" Run
+"
+nmap <leader>rr :action ChooseRunConfiguration<CR>
+nmap <leader>rw :action ActivateRunToolWindow<CR>
+nmap <leader>rR :action Rerun<CR>
+
+" Plugins
+"
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+" :actionlist <query>
