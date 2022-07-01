@@ -9,13 +9,14 @@ set incsearch
 " vimrc
 "
 nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
-nnoremap <leader>ve :e /Users/hanse/.ideavimrc<CR>
+nnoremap <leader>ve :e ~/.ideavimrc<CR>
 
 " Window/Split management
 "
 nnoremap <c-\> :action SplitVertically<CR>
 nnoremap <c--> :action SplitHorizontally<CR>
-nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <c-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <c-w><c-x> :action HideAllWindows<CR>
 
 " Navigation
 "
@@ -23,12 +24,14 @@ nnoremap gf :action GotoFile<CR>
 nnoremap gk :action GotoClass<CR>
 nnoremap gs :action GotoSymbol<CR>
 nnoremap gr :action RecentFiles<CR>
+nnoremap gh :action Switcher<CR>
 
 
 " Git
 "
 nnoremap <leader>ga :action Vcs.QuickListPopupAction<CR>
 nnoremap <leader>gb :action Vcs.ShowBranches<CR>
+nnoremap <leader>gp :action Git.Pull<CR>
 
 
 
@@ -39,6 +42,7 @@ noremap <leader>cd :action QuickJavaDoc<CR>
 noremap <leader>cs :action FileStructurePopup<CR>
 noremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>cu :action ShowUsages<CR>
+nnoremap <leader>ct :action GotoTest<CR>
 noremap <leader>` :action ActivateTerminalToolWindow<CR>
 
 " Run
@@ -52,6 +56,15 @@ nmap <leader>rR :action Rerun<CR>
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
+" IDE-specific settings
+"
+
+if has('ide')
+  if &ide =~ 'RubyMine'
+  endif
+  elseif &ide =~ 'pycharm'
+  endif
+endif
 
 
 " Find more examples here: https://jb.gg/share-ideavimrc
