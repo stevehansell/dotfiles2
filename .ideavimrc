@@ -14,25 +14,29 @@ nnoremap <leader>ve :e ~/.ideavimrc<CR>
 " Window/Split management
 "
 nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-w><c-h> :action SplitHorizontally<CR>
 nnoremap <c-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <c-w><c-x> :action HideAllWindows<CR>
 
 " Navigation
 "
-nnoremap gf :action GotoFile<CR>
-nnoremap gk :action GotoClass<CR>
-nnoremap gs :action GotoSymbol<CR>
-nnoremap gr :action RecentFiles<CR>
-nnoremap gh :action Switcher<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+nnoremap <leader>gk :action GotoClass<CR>
+nnoremap <leader>gs :action GotoSymbol<CR>
+nnoremap <leader>gr :action RecentFiles<CR>
+nnoremap <leader>gh :action Switcher<CR>
+nnoremap <leader>gp :action SwitcherNextProblem<CR>
+nnoremap <leader>gP :action SwitcherPreviousProblem<CR>
 
 
-" Git
+" Git / VCS
 "
-nnoremap <leader>ga :action Vcs.QuickListPopupAction<CR>
-nnoremap <leader>gb :action Vcs.ShowBranches<CR>
-nnoremap <leader>gp :action Git.Pull<CR>
-
+nnoremap <leader>va :action Vcs.QuickListPopupAction<CR>
+nnoremap <leader>vb :action Git.Branches<CR>
+nnoremap <leader>vB :action Annotate<CR>
+nnoremap <leader>vp :action Git.Pull<CR>
+nnoremap <leader>vP :action Git.Push<CR>
+nnoremap <leader>vf :action Git.Fetch<CR>
 
 
 " Quick Actions
@@ -42,8 +46,15 @@ noremap <leader>cd :action QuickJavaDoc<CR>
 noremap <leader>cs :action FileStructurePopup<CR>
 noremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>cu :action ShowUsages<CR>
+noremap <leader>cU :action FindUsages<CR>
 nnoremap <leader>ct :action GotoTest<CR>
-noremap <leader>` :action ActivateTerminalToolWindow<CR>
+noremap <leader>tt :action ActivateTerminalToolWindow<CR>
+
+" Project View
+"
+nnoremap <leader>pf :action SelectInProjectView<CR>
+nnoremap <leader>pr :action ManageRecentProjects<CR>
+
 
 " Run
 "
