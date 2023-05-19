@@ -14,7 +14,6 @@ nnoremap <leader>ve :e ~/.ideavimrc<CR>
 " Window/Split management
 "
 nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c-w><c-h> :action SplitHorizontally<CR>
 nnoremap <c-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <c-w><c-x> :action HideAllWindows<CR>
 
@@ -55,6 +54,15 @@ noremap <leader>tt :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>pf :action SelectInProjectView<CR>
 nnoremap <leader>pr :action ManageRecentProjects<CR>
 
+" Tool Windows
+"
+nnoremap <leader>tt :action ToolWindowsGroup<CR>
+nnoremap <leader>tT :action MaximizeToolWindow<CR>
+nnoremap <leader>tc :action ActivateCommitToolWindow<CR>
+nnoremap <leader>tr :action ActivateRunToolWindow<CR>
+nnoremap <leader>td :action ActivateDebugToolWindow<CR>
+nnoremap <leader>tp :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>tg :action ActivateVersionControlToolWindow<CR>
 
 " Run
 "
