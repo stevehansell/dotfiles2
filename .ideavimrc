@@ -2,9 +2,10 @@ let mapleader = " ""
 
 " Basic settings
 "
-set number
-set relativenumber
+set number relativenumber
 set incsearch
+set showmode
+
 
 " vimrc
 "
@@ -14,8 +15,13 @@ nnoremap <leader>ve :e ~/.ideavimrc<CR>
 " Window/Split management
 "
 nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c-w><c-\> :action MoveTabRight<CR>
 nnoremap <c-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <c-w><c-w> :action MaximizeEditorInSplit<CR>
 nnoremap <c-w><c-x> :action HideAllWindows<CR>
+nnoremap ++ :action StretchSplitToRight<CR>
+nnoremap -- :action StretchSplitToLeft<CR>
+nnoremap <c-w>O :action CloseAllEditorsButActive<CR>
 
 " Navigation
 "
@@ -26,7 +32,17 @@ nnoremap <leader>gr :action RecentFiles<CR>
 nnoremap <leader>gh :action Switcher<CR>
 nnoremap <leader>gp :action SwitcherNextProblem<CR>
 nnoremap <leader>gP :action SwitcherPreviousProblem<CR>
+nnoremap <leader>gG :action Github.Open.In.Browser<CR>
+nnoremap g; :action JumpToLastChange<CR>
 
+" File
+"
+nnoremap <leader>fr :action CopyReferencePopupGroup<CR>
+
+" Editing
+"
+imap <C-n> <ESC>:action HippieCompletion<CR>s
+imap <C-p> <ESC>:action HippieBackwardCompletion<CR>s
 
 " Git / VCS
 "
@@ -36,6 +52,8 @@ nnoremap <leader>vB :action Annotate<CR>
 nnoremap <leader>vp :action Git.Pull<CR>
 nnoremap <leader>vP :action Git.Push<CR>
 nnoremap <leader>vf :action Git.Fetch<CR>
+nnoremap <leader>vdd :action Vcs.ShowDiffChangedLines<CR>
+nnoremap <leader>vG :action Github.Copy.Link.To.GitHub<CR>
 
 
 " Quick Actions
@@ -47,7 +65,22 @@ noremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>cu :action ShowUsages<CR>
 noremap <leader>cU :action FindUsages<CR>
 nnoremap <leader>ct :action GotoTest<CR>
-noremap <leader>tt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>cm :action EditorMatchBrace<CR>
+nmap <leader>cn :action VcsShowNextChangeMarker<CR>
+nmap <leader>cp :action VcsShowPrevChangeMarker<CR>
+nmap <leader>cc :action VcsShowCurrentChangeMarker<CR>
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Debug
+"
+nnoremap <leader>dd :action ToggleLineBreakpoint<CR>
+nnoremap <leader>do :action StepOver<CR>
+nnoremap <leader>dO :action StepOut<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>dr :action Resume<CR>
+nnoremap <leader>dm :action XDebugger.MuteBreakpoints<CR>
+
 
 " Project View
 "
@@ -56,13 +89,15 @@ nnoremap <leader>pr :action ManageRecentProjects<CR>
 
 " Tool Windows
 "
-nnoremap <leader>tt :action ToolWindowsGroup<CR>
-nnoremap <leader>tT :action MaximizeToolWindow<CR>
+nnoremap <leader>tg :action ToolWindowsGroup<CR>
+map <leader>tm :action MaximizeToolWindow<CR>
 nnoremap <leader>tc :action ActivateCommitToolWindow<CR>
 nnoremap <leader>tr :action ActivateRunToolWindow<CR>
+noremap <leader>tb :action ActivateDatabaseToolWindow<CR>
 nnoremap <leader>td :action ActivateDebugToolWindow<CR>
 nnoremap <leader>tp :action ActivateProblemsViewToolWindow<CR>
 nnoremap <leader>tg :action ActivateVersionControlToolWindow<CR>
+noremap <leader>tt :action ActivateTerminalToolWindow<CR>
 
 " Run
 "
