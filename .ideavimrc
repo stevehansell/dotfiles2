@@ -9,19 +9,19 @@ set showmode
 
 " vimrc
 "
-nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <leader>vR :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <leader>ve :e ~/.ideavimrc<CR>
 
 " Window/Split management
 "
-nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c-w><c-\> :action MoveTabRight<CR>
+nnoremap \ :action SplitVertically<CR>
 nnoremap <c-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <c-w><c-w> :action MaximizeEditorInSplit<CR>
-nnoremap <c-w><c-x> :action HideAllWindows<CR>
+nnoremap <c-w><c-x> :action HideActiveWindow<CR>
+nnoremap <c-w><c-X> :action HideAllWindows<CR>
+nnoremap <c-w><c-o> :action CloseAllEditorsButActive<CR>
 nnoremap ++ :action StretchSplitToRight<CR>
 nnoremap -- :action StretchSplitToLeft<CR>
-nnoremap <c-w>O :action CloseAllEditorsButActive<CR>
 
 " Navigation
 "
@@ -30,10 +30,10 @@ nnoremap <leader>gk :action GotoClass<CR>
 nnoremap <leader>gs :action GotoSymbol<CR>
 nnoremap <leader>gr :action RecentFiles<CR>
 nnoremap <leader>gh :action Switcher<CR>
-nnoremap <leader>gp :action SwitcherNextProblem<CR>
-nnoremap <leader>gP :action SwitcherPreviousProblem<CR>
-nnoremap <leader>gG :action Github.Open.In.Browser<CR>
-nnoremap g; :action JumpToLastChange<CR>
+nnoremap <leader>gp :action GotoPreviousError<CR>
+nnoremap <leader>gP :action GotoNextError<CR>
+nnoremap <leader>gcl :action JumpToLastChange<CR>
+nnoremap <leader>gcn :action JumpToNextChange<CR>
 
 " File
 "
@@ -52,8 +52,11 @@ nnoremap <leader>vB :action Annotate<CR>
 nnoremap <leader>vp :action Git.Pull<CR>
 nnoremap <leader>vP :action Git.Push<CR>
 nnoremap <leader>vf :action Git.Fetch<CR>
-nnoremap <leader>vdd :action Vcs.ShowDiffChangedLines<CR>
+nnoremap <leader>vd :action Vcs.ShowDiffChangedLines<CR>
+nnoremap <leader>vD :action Compare.SameVersion<CR>
 nnoremap <leader>vG :action Github.Copy.Link.To.GitHub<CR>
+nnoremap <leader>vg :action Github.Open.In.Browser<CR>
+noremap <leader>vr :action Vcs.RollbackChangedLines<CR>
 
 
 " Quick Actions
@@ -65,7 +68,6 @@ noremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>cu :action ShowUsages<CR>
 noremap <leader>cU :action FindUsages<CR>
 nnoremap <leader>ct :action GotoTest<CR>
-nnoremap <leader>cm :action EditorMatchBrace<CR>
 nmap <leader>cn :action VcsShowNextChangeMarker<CR>
 nmap <leader>cp :action VcsShowPrevChangeMarker<CR>
 nmap <leader>cc :action VcsShowCurrentChangeMarker<CR>
@@ -82,33 +84,44 @@ nnoremap <leader>dr :action Resume<CR>
 nnoremap <leader>dm :action XDebugger.MuteBreakpoints<CR>
 
 
+
 " Project View
 "
 nnoremap <leader>pf :action SelectInProjectView<CR>
 nnoremap <leader>pr :action ManageRecentProjects<CR>
 
+" Tasks and Projects
+"
+nnoremap <leader>kk :action tasks.and.contexts<CR>
+nnoremap <leader>ks :action tasks.switch<CR>
+
 " Tool Windows
 "
-nnoremap <leader>tg :action ToolWindowsGroup<CR>
+noremap <leader>T :action MainToolBar<CR>
+nnoremap <leader>tw :action ToolWindowsGroup<CR>
 map <leader>tm :action MaximizeToolWindow<CR>
 nnoremap <leader>tc :action ActivateCommitToolWindow<CR>
 nnoremap <leader>tr :action ActivateRunToolWindow<CR>
-noremap <leader>tb :action ActivateDatabaseToolWindow<CR>
-nnoremap <leader>td :action ActivateDebugToolWindow<CR>
+nnoremap <leader>td :action ActivateDatabaseToolWindow<CR>
+nnoremap <leader>tb :action ActivateDebugToolWindow<CR>
+noremap <leader>tf :action ActivateProjectToolWindow<CR>
 nnoremap <leader>tp :action ActivateProblemsViewToolWindow<CR>
-nnoremap <leader>tg :action ActivateVersionControlToolWindow<CR>
 noremap <leader>tt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>tv :action ActivateVersionControlToolWindow<CR>
 
 " Run
 "
-nmap <leader>rr :action ChooseRunConfiguration<CR>
-nmap <leader>rw :action ActivateRunToolWindow<CR>
-nmap <leader>rR :action Rerun<CR>
+noremap <leader>rr :action ChooseRunConfiguration<CR>
+noremap <leader>rw :action ActivateRunToolWindow<CR>
+noremap <leader>R :action Rerun<CR>
+noremap <leader>rs :action Stop<CR>
+noremap <leader>ra :action RunAnything<CR>
 
 " Plugins
 "
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+
 
 " IDE-specific settings
 "
