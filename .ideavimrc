@@ -25,15 +25,15 @@ nnoremap -- :action StretchSplitToLeft<CR>
 
 " Navigation
 "
+nnoremap <leader>gg :action Switcher<CR>
 nnoremap <leader>gf :action GotoFile<CR>
 nnoremap <leader>gk :action GotoClass<CR>
 nnoremap <leader>gs :action GotoSymbol<CR>
 nnoremap <leader>gr :action RecentFiles<CR>
-nnoremap <leader>gh :action Switcher<CR>
 nnoremap <leader>gp :action GotoPreviousError<CR>
 nnoremap <leader>gP :action GotoNextError<CR>
-nnoremap <leader>gcl :action JumpToLastChange<CR>
-nnoremap <leader>gcn :action JumpToNextChange<CR>
+nnoremap <c-k> :action JumpToLastChange<CR>
+nnoremap <c-j> :action JumpToNextChange<CR>
 
 " File
 "
@@ -130,6 +130,8 @@ if has('ide')
   if &ide =~ 'RubyMine'
   endif
   elseif &ide =~ 'pycharm'
+  endif
+  elseif &ide =~ 'WebStorm'
   endif
 endif
 
