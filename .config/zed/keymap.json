@@ -1,0 +1,86 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p ctrl-h": "workspace::ToggleLeftDock",
+      "ctrl-p ctrl-l": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "escape": "editor::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "space h": "pane::ActivatePreviousItem",
+      "space l": "pane::ActivateNextItem",
+      "\\": "pane::SplitAndMoveRight",
+
+      "space q": "pane::CloseActiveItem",
+      "space Q": "pane::CloseCleanItems",
+      "space o": "pane::CloseOtherItems",
+
+      "space g .": "zed::OpenKeymapFile",
+      "space g f": "file_finder::Toggle",
+      "space g s": "project_symbols::Toggle",
+
+      "space t s": "pane::DeploySearch",
+      "space t a": "agent::ToggleFocus",
+      "space t T": "workspace::NewCenterTerminal",
+      "space t t": "terminal_panel::ToggleFocus",
+
+      "space r r": "task::Spawn",
+      "space r d": "debugger::Start",
+      "space r R": "task::Rerun",
+
+      "space b": "tab_switcher::ToggleAll",
+
+      "space p r": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // Problems
+      "space c P": "diagnostics::Deploy",
+      "space c p": "diagnostics::DeployCurrentFile",
+
+      // Code
+      "space c u": "editor::FindAllReferences",
+      "space c o": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // Git
+      "space v r": "git::Restore",
+      "space v R": "git::RestoreFile",
+      "space v d": "git::Diff",
+      "space v b": "git::Blame",
+
+      // Diffing
+      "space d h": "editor::ExpandAllDiffHunks",
+      "space d H": "editor::CollapseAllDiffHunks",
+      "space d t": "editor::ToggleSelectedDiffHunks"
+    }
+  }
+]
