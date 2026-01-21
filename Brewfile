@@ -1,5 +1,8 @@
 #  To install on new machine:
 # > brew bundle install
+#
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
 
 tap "aws/tap"
 tap "nikitabobko/tap"
@@ -54,3 +57,12 @@ cask "monitorcontrol"
 
 # JetBrains Mono NL
 cask "font-jetbrains-mono-nerd-font"
+
+# Golang
+brew "go"
+
+# My apps
+cask "zed"
+cask "obsidian"
+cask "cleanshot"
+cask "bitwarden"
